@@ -1,0 +1,45 @@
+.appTitle{
+    color: #121212;
+    margin: 30px 0 15px 0;
+}
+.searchContainer{
+    width: 75%;
+    position: relative;
+    margin-bottom: 0 !important;
+}
+.noSpace{
+    position: relative; 
+    width: 0; 
+    height: 0 ;
+}
+#mainSearchInput{
+    z-index: 1;
+}
+.downArrow{
+    position: absolute;
+    right: 40px;
+    z-index: 2;
+}
+.searchContainerDropDown{
+    width: 75%;
+    position: relative;
+    margin: 0;
+    margin-bottom: 0 !important;
+    
+}
+.dropDownLabel{
+    width: 160px
+}
+.dropDownContainer{
+    position: relative;
+}
+.searchBtnDropDown{
+    position: absolute;
+    /* right: 25%; */
+    padding: 10px 30px;
+    margin: 10px 0;
+}
+.input-group-text, .form-control, .input-group{
+    border-radius: 0 !important;
+}
+    

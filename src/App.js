@@ -10,6 +10,7 @@ class App extends Component {
     library: [],
     search: '',
     searchResults: BOOKS,
+    searchResultsSlice: BOOKS.slice(0,15),
     excludedWords: '',
     isSearchOptionsDisplay: false,
     isDisplayTxtFile: false,

@@ -28,8 +28,8 @@ class App extends Component {
     let tempState = [];
     for (let i = 0; i < BOOKS.length; i++) {
       let fileContents = BOOKS[i].location;
-      let fileAuthor = BOOKS[i].author;
-      let fileTitle = BOOKS[i].title;
+      // let fileAuthor = BOOKS[i].author;
+      // let fileTitle = BOOKS[i].title;
       let fileId = BOOKS[i].id;
       let test = fileContents.toLowerCase().replace(/[^A-Za-z' ;]/g, "").split(' ');
 
@@ -41,7 +41,7 @@ class App extends Component {
           hash[test[j]]++;
         }
       }
-      let currentStorage = { title: fileTitle, author: fileAuthor, dictionary: hash, id: fileId, location: fileContents }
+      let currentStorage = { dictionary: hash, id: fileId, location: fileContents }
       tempState.push(currentStorage);
     }
     this.setState({ library: tempState });

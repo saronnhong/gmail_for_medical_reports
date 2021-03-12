@@ -9,6 +9,7 @@ class Reports extends Component {
         2: this.props.searchResults.slice(15, 29),
         3: this.props.searchResults.slice(30, 44),
         4: this.props.searchResults.slice(45, 60),
+        5: this.props.searchResults.slice(61, 75),
         currentPage: 1
     }
     componentDidUpdate(prevProps) {
@@ -17,7 +18,9 @@ class Reports extends Component {
                 1: this.props.searchResults.slice(0, 14),
                 2: this.props.searchResults.slice(15, 29),
                 3: this.props.searchResults.slice(30, 44),
-                4: this.props.searchResults.slice(45, 60)
+                4: this.props.searchResults.slice(45, 60),
+                5: this.props.searchResults.slice(61, 75),
+                currentPage: 1
             })
         }
     }
@@ -69,8 +72,12 @@ class Reports extends Component {
                         {this.props.searchResults.length > 15 ?
                             <li className="page-item"><a className="page-link" href="#" onClick={() => this.pagination(2)}>2</a></li>
                             : null}
-                        {this.props.searchResults.length > 30 ? <li className="page-item"><a className="page-link" href="#" onClick={() => this.pagination(3)}>3</a></li> : null}
-                        {this.props.searchResults.length > 45 ? <li className="page-item"><a className="page-link" href="#" onClick={() => this.pagination(4)}>4</a></li> : null}
+                        {this.props.searchResults.length > 30 ?
+                            <li className="page-item"><a className="page-link" href="#" onClick={() => this.pagination(3)}>3</a></li>
+                            : null}
+                        {this.props.searchResults.length > 45 ?
+                            <li className="page-item"><a className="page-link" href="#" onClick={() => this.pagination(4)}>4</a></li>
+                            : null}
                         <li className={this.state[this.state.currentPage + 1].length > 0 ? "page-item" : "page-item disabled"}>
                             <a className="page-link" href="#" aria-label="Next" onClick={() => this.paginationNext(this.state.currentPage)}>
                                 <span aria-hidden="true">&raquo;</span>

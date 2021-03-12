@@ -9,12 +9,16 @@ class App extends Component {
   state = {
     library: [],
     search: '',
-    searchResults: [],
+    searchResults: BOOKS,
     excludedWords: '',
     isSearchOptionsDisplay: false,
     isDisplayTxtFile: false,
     idToPass: 0,
-    isDisplayTable: false
+    isDisplayTable: true,
+    tags: {
+      goodreport: [1,2,3,4],
+      conditionpresent: [0, 4]
+    }
   }
   componentDidMount() {
     this.createDictionary()
@@ -89,37 +93,85 @@ class App extends Component {
   onChangeExcludeInput = (e) => {
     this.setState({ excludedWords: e.target.value })
   }
+
+  displayTagResult = item => {
+    const { tags } = this.state;
+    let tempState=[];
+    let currentTag = tags[item];
+    for(let book in BOOKS){
+      for(let i=0; i<currentTag.length; i++){
+        if(BOOKS[book].id === currentTag[i]){
+          tempState.push(BOOKS[book]);
+        }
+      }
+    }
+    this.setState({ ...this.state, searchResults: tempState, isDisplayTable: true, isDisplayTxtFile: false });
+  }
+
+  displayInbox = () => {
+    this.setState({ ...this.state, searchResults: BOOKS, isDisplayTable: true, isDisplayTxtFile: false });
+  }
+
+  addTag = (item, id) => {
+    const { tags } = this.state;
+    let currentTag = tags[item];
+    if(!currentTag.includes(id)){
+      currentTag.push(id)
+    }
+    this.setState({ ...this.state, tags: {...tags, item: currentTag}});
+  }
+  removeTag = (item, id) => {
+    const { tags } = this.state;
+    let currentTag = tags[item];
+    let newArr=[];
+    if(currentTag.includes(id)){
+      newArr= currentTag.filter(word => word !== id)
+      // console.log(newArr);
+    }
+    if(item === "goodreport"){
+      this.setState({...this.state, tags: {...tags, "goodreport": newArr}});
+    }else if(item === "conditionpresent"){
+      this.setState({...this.state, tags: {...tags, "conditionpresent": newArr}});
+    }
+    
+  }
   render() {
     return (
       <div className="App">
         <div className="container">
           <div className="row">
-            <div className="col-md-2">
-              biggie
+            <div className="col-md-2" style={{ marginTop: "150px", padding: '20px' }}>
+              <div className="row">
+                <div className="tags" onClick={()=> this.displayInbox()}><i class="fas fa-envelope-open-text"></i> Inbox</div>
+                <div className="tags" onClick={()=> this.displayTagResult("goodreport")}><i class="fas fa-hashtag"></i>goodreport</div>
+                <div className="tags" onClick={()=> this.displayTagResult("conditionpresent")}><i class="fas fa-hashtag"></i>conditionpresent</div>
+              </div>
+
             </div>
             <div className="col-md-10">
-              <div>
-                <div className="row">
-                  <div className="col-md-12">
-                    <h1 className="appTitle text-center">Gmail For Medical Reports</h1>
-                  </div>
+              <div className="row">
+                <div className="col-md-12">
+                  <h1 className="appTitle text-center">Gmail For Medical Reports</h1>
                 </div>
-                <SearchBar
-                  isSearchOptionsDisplay={this.state.isSearchOptionsDisplay}
-                  onClickSearchDropDown={this.onClickSearchDropDown}
-                  onClickSearchBtn={this.searchBooks}
-                  onChangeSearchInput={this.onChangeSearchInput}
-                  onChangeExcludeInput={this.onChangeExcludeInput}
-                  handleKeyDown={this.handleKeyDown}
-                />
-                <Reports
-                  isDisplayTable={this.state.isDisplayTable}
-                  searchResults={this.state.searchResults}
-                  isDisplayTxtFile={this.state.isDisplayTxtFile}
-                  idToPass={this.state.idToPass}
-                  onClick={this.onClickBookRow}
-                />
               </div>
+              <SearchBar
+                isSearchOptionsDisplay={this.state.isSearchOptionsDisplay}
+                onClickSearchDropDown={this.onClickSearchDropDown}
+                onClickSearchBtn={this.searchBooks}
+                onChangeSearchInput={this.onChangeSearchInput}
+                onChangeExcludeInput={this.onChangeExcludeInput}
+                handleKeyDown={this.handleKeyDown}
+              />
+              <Reports
+                isDisplayTable={this.state.isDisplayTable}
+                searchResults={this.state.searchResults}
+                isDisplayTxtFile={this.state.isDisplayTxtFile}
+                idToPass={this.state.idToPass}
+                onClick={this.onClickBookRow}
+                tags={this.state.tags}
+                addTag={this.addTag}
+                removeTag={this.removeTag}
+              />
             </div>
           </div>
         </div>

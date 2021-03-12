@@ -10,7 +10,6 @@ class App extends Component {
     library: [],
     search: '',
     searchResults: BOOKS,
-    searchResultsSlice: BOOKS.slice(0,15),
     excludedWords: '',
     isSearchOptionsDisplay: false,
     isDisplayTxtFile: false,
@@ -106,7 +105,8 @@ class App extends Component {
         }
       }
     }
-    this.setState({ ...this.state, searchResults: tempState, isDisplayTable: true, isDisplayTxtFile: false });
+    console.log(tempState);
+    this.setState({ ...this.state, searchResults: tempState, isDisplayTable: true, isDisplayTxtFile: false }, ()=> console.log(this.state.searchResults));
   }
 
   displayInbox = () => {

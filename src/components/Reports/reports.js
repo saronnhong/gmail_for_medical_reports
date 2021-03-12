@@ -11,6 +11,16 @@ class Reports extends Component {
         4: this.props.searchResults.slice(45, 60),
         currentPage: 1
     }
+    componentDidUpdate(prevProps) {
+        if (this.props.searchResults !== prevProps.searchResults) {
+            this.setState({
+                1: this.props.searchResults.slice(0, 14),
+                2: this.props.searchResults.slice(15, 29),
+                3: this.props.searchResults.slice(30, 44),
+                4: this.props.searchResults.slice(45, 60)
+            })
+        }
+    }
 
     pagination = (currPage) => {
         this.setState({ currentPage: currPage })

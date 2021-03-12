@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/gmail_for_medical_reports/static/css/main.704dcc4f.chunk.css",
-    "main.js": "/gmail_for_medical_reports/static/js/main.01c00e57.chunk.js",
-    "main.js.map": "/gmail_for_medical_reports/static/js/main.01c00e57.chunk.js.map",
+    "main.css": "/gmail_for_medical_reports/static/css/main.f6e4762c.chunk.css",
+    "main.js": "/gmail_for_medical_reports/static/js/main.bbeb2e1b.chunk.js",
+    "main.js.map": "/gmail_for_medical_reports/static/js/main.bbeb2e1b.chunk.js.map",
     "runtime-main.js": "/gmail_for_medical_reports/static/js/runtime-main.01a4f5a6.js",
     "runtime-main.js.map": "/gmail_for_medical_reports/static/js/runtime-main.01a4f5a6.js.map",
     "static/js/2.9368a043.chunk.js": "/gmail_for_medical_reports/static/js/2.9368a043.chunk.js",
     "static/js/2.9368a043.chunk.js.map": "/gmail_for_medical_reports/static/js/2.9368a043.chunk.js.map",
     "index.html": "/gmail_for_medical_reports/index.html",
-    "static/css/main.704dcc4f.chunk.css.map": "/gmail_for_medical_reports/static/css/main.704dcc4f.chunk.css.map",
+    "static/css/main.f6e4762c.chunk.css.map": "/gmail_for_medical_reports/static/css/main.f6e4762c.chunk.css.map",
     "static/js/2.9368a043.chunk.js.LICENSE.txt": "/gmail_for_medical_reports/static/js/2.9368a043.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.01a4f5a6.js",
     "static/js/2.9368a043.chunk.js",
-    "static/css/main.704dcc4f.chunk.css",
-    "static/js/main.01c00e57.chunk.js"
+    "static/css/main.f6e4762c.chunk.css",
+    "static/js/main.bbeb2e1b.chunk.js"
   ]
 }

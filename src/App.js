@@ -112,7 +112,6 @@ class App extends Component {
                   onChangeExcludeInput={this.onChangeExcludeInput}
                   handleKeyDown={this.handleKeyDown}
                 />
-                <br></br>
                 <Reports
                   isDisplayTable={this.state.isDisplayTable}
                   searchResults={this.state.searchResults}

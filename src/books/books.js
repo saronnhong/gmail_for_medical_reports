@@ -6,8 +6,7 @@ export const BOOKS = [
         title: "Warrior Maid of Mars",
         author: "Alfred Coppel",
         location: raw('./Warrior_Maid_Of_Mars.txt'),
-        // url: 'http://gutenberg.org/files/64774/64774-0.txt'
-        url: './Warrior_Maid_Of_Mars.txt'
+        url: 'http://gutenberg.org/files/64774/64774-0.txt'
     },
     {
         id: 1,

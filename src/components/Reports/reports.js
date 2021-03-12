@@ -2,12 +2,11 @@ import React, { Component } from 'react';
 import "./style.css";
 import { BOOKS } from "../../books/books";
 
-let temp = process.env.PUBLIC_URL + '/books/He_That_Will_Not_When_He_May.txt'
 class Reports extends Component {
 
     render() {
         return (
-            <div>
+            <div className="reportsContainier">
                 {this.props.isDisplayTable ?
                     <table class="table table-hover table-bordered">
                         <thead class="table-dark">
@@ -31,9 +30,8 @@ class Reports extends Component {
                 }
 
                 {this.props.isDisplayTxtFile ?
-                    <iframe title="some value" width="100%" height="800px" src={`https://docs.google.com/gview?url=${BOOKS[this.props.idToPass].url}&embedded=true`}></iframe>
+                    <iframe title="some value" width="100%" height="800px" src={`${BOOKS[this.props.idToPass].url}`}></iframe>
                     : "frame hidden"}
-                <iframe title="some value" width="100%" height="800px" src={`https://docs.google.com/gview?url=${BOOKS[0].url}}&embedded=true`}></iframe>
 
             </div>
         )
